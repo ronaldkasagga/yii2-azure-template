@@ -119,15 +119,30 @@ $config = require(__DIR__ . '/../config/web.php');
 
 ### Database
 
-Edit the file `config/db.php` with real data, for example:
+#### For Production
+Edit the file `config/db.php` with real data to match the environment variables
+with the database credentials
+```php
+// previous code here . . . 
+if(containsAllKeys($_ENV, ['MY_PROJECT_DB_DSN', 'MY_PROJECT_DB_USER', 'MY_PROJECT_DB_PASSWORD'])){
+    $dsn = $_ENV['MY_PROJECT_DB_DSN'];
+    $username = $_ENV['MY_PROJECT_DB_USER'];
+    $password = $_ENV['MY_PROJECT_DB_PASSWORD'];
+}
+//and so on . . . .
+```
+On your web dashboard on the azure portal, go to **SETTINGS >> Application Settings** and set the  
+values of _'MY_PROJECT_DB_DSN', 'MY_PROJECT_DB_USER', 'MY_PROJECT_DB_PASSWORD'_ above accordingly, under 
+**App Settings**
 
+#### For Development 
+You could as well use the approach above (set the environment variables _'MY_PROJECT_DB_DSN', 'MY_PROJECT_DB_USER', 'MY_PROJECT_DB_PASSWORD'_)
+or you could create `/config/db_local.php` and set your development database credentials, such as
 ```php
 return [
-    'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname=yii2basic',
     'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
+    'password' => '',
 ];
 ```
 
