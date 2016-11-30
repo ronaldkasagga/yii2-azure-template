@@ -96,6 +96,14 @@ return [
 ];
 ```
 
+### Azure Portal COnfiguration
+#### Setting the Directory Root
+ * On the web app's portal, go to SETTINGS >> Application Settings
+ * Scroll down to 'Virtual applications and directories'
+ * Change the physical path to 'site\wwwroot\web' and Save
+  
+
+
 **NOTES:**
 - Yii won't create the database for you, this has to be done manually before you can access it.
 - Check and edit the other files in the `config/` directory to customize your application as required.
