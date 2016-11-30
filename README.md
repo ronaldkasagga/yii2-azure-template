@@ -82,6 +82,41 @@ http://localhost/basic/web/
 CONFIGURATION
 -------------
 
+### Entry Script
+
+The entry script /web/index.php was removed to allow for disabling debug modules that 
+don't load on production. Use the following scripts accordingly
+
+#### Development
+
+Place this script inside `/web/index.php`
+
+```php
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'dev');
+
+require(__DIR__ . '/../vendor/autoload.php');
+require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
+
+$config = require(__DIR__ . '/../config/web.php');
+
+(new yii\web\Application($config))->run();
+```
+
+#### On Azure
+* Go to the Kodu Debug console of your app (https://<app name>.azurewebsites.net/DebugConsole
+* Navigate to the path `\home\site\wwwroot\web\` and create an `index.php`
+* Paste the content below into `index.php` and save
+
+```php
+require(__DIR__ . '/../vendor/autoload.php');
+require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
+
+$config = require(__DIR__ . '/../config/web.php');
+
+(new yii\web\Application($config))->run();
+```
+
 ### Database
 
 Edit the file `config/db.php` with real data, for example:
