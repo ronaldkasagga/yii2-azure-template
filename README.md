@@ -96,7 +96,7 @@ return [
 ];
 ```
 
-### Azure Portal COnfiguration
+### Azure Portal Configuration
 #### Setting the Directory Root
  * On the web app's portal, go to SETTINGS >> Application Settings
  * Scroll down to 'Virtual applications and directories'
