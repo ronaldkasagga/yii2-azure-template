@@ -137,7 +137,16 @@ return [
  * Scroll down to 'Virtual applications and directories'
  * Change the physical path to 'site\wwwroot\web' and Save
   
-
+#### Dependencies
+* Go to the debug console (https:://<appname>.scm.azurewebsites.net/DebugConsole)
+* Change directory on the console to `wwwroot`
+* Run the following commands
+```bash
+php composer.phar global require "fxp/composer-asset-plugin:^1.2.0"
+php composer.phar install #will take a while
+php composer.phar update #optional to make sure everything works
+```
+You might exceed your GitHub rate limit and be asked to obtain a token for the update process
 
 **NOTES:**
 - Yii won't create the database for you, this has to be done manually before you can access it.
