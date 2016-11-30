@@ -1,6 +1,8 @@
 Yii 2 Basic Azure Template
 ============================
 
+This template eases the process of installing [Yii2](http://www.yiiframework.com/) Basic template on Azure.
+
 REQUIREMENTS
 ------------
 
